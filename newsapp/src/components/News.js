@@ -1312,6 +1312,16 @@ export class News extends Component {
             loading: false
         }
     }
+
+    async componentDidMount(){
+        let urls = ('https://newsapi.org/v2/top-headlines?country=in&apiKey=93e1ffea8d2444fa8d9fa45daa690004')
+        let data = await fetch(urls)
+        let parsedData = await data.json()
+        console.log(parsedData)
+        this.setState({articles: parsedData.articles})
+        
+
+    }
     render() {
         return (
             <div className='container my-4'>
@@ -1319,7 +1329,7 @@ export class News extends Component {
                 <div className="row">
                 {this.state.article.map((element)=> {
                     return  <div className='col-md-3' key = {element.url} >
-                    <NewsItem title={element.title} description= {element.description} Imageurl= {element.urlToImage} url = {element.url}  />
+                    <NewsItem title={element.title ? element.title.slice(0, 50) : "No Title Available"} description={element.description ? element.description.slice(0, 80) : "No Description Available"}  Imageurl={element.urlToImage || "https://i.insider.com/631f874489d2b3001894b2e3?width=1200&format=jpeg"}  url={element.url}  />
                     </div>
                             
                 })}

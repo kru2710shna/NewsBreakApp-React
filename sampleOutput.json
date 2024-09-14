@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import NewsItem from './NewsItem';
-
-export class News extends Component {
-
-    articles = [
+{
+    "status": "ok",
+    "totalResults": 6948,
+    "articles": [
         {
             "source": {
                 "id": "wired",
@@ -1304,31 +1302,5 @@ export class News extends Component {
             "publishedAt": "2024-09-04T10:07:01Z",
             "content": "LONDON, ENGLAND - NOVEMBER 13: The BBC headquarters at New Broadcasting House is illuminated at ... [+] night on November 13, 2012 in London, England. Tim Davie has been appointed the acting Director… [+8681 chars]"
         }
-    ];
-    constructor(){
-        super();
-        this.state = {
-            article : this.articles,
-            loading: false
-        }
-    }
-    render() {
-        return (
-            <div className='container my-4'>
-                <h2 className="text-center">HeadLine</h2>
-                <div className="row">
-                {this.state.article.map((element)=> {
-                    return  <div className='col-md-3' key = {element.url} >
-                    <NewsItem title={element.title} description= {element.description} Imageurl= {element.urlToImage} url = {element.url}  />
-                    </div>
-                            
-                })}
-
-                   
-                </div>
-            </div>
-        );
-    }
+    ]
 }
-
-export default News;

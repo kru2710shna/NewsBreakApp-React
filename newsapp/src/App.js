@@ -9,9 +9,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div> 
         <Navbar />
-        <News/>
+        <News pageSize= {5} />
       </div>
     )
   }

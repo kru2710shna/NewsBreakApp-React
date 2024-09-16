@@ -3,6 +3,8 @@ import NewsItem from './NewsItem'
 import PropTypes from 'prop-types'
 import Spinner from './Spinner'
 
+const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+
 export class News extends Component {
     static defaultProps = {
         country: 'in',
@@ -45,7 +47,7 @@ export class News extends Component {
     }
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=93e1ffea8d2444fa8d9fa45daa690004&page=1&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${apiKey}&page=1&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -94,11 +96,7 @@ export class News extends Component {
 
 
     render() {
-        const style = {
-            border: "1px solid black",
-            margin: "10px",
-            padding: "10px"
-        };
+        
 
         return (
             <div className="container my-3">

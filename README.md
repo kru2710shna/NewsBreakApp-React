@@ -45,6 +45,9 @@ Install the necessary dependencies using npm:
 npm install
 ```
 
+### 3.1 Add .ev varibale
+Create your own NEWSApi - > https://newsapi.org 
+
 ### 4. Start the Development Server
 Run the app in development mode. This will start a local server at http://localhost:3000:
 
